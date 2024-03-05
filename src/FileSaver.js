@@ -47,7 +47,8 @@ function download (url, name, opts) {
 function corsEnabled (url) {
   var xhr = new XMLHttpRequest()
   // use sync to avoid popup blocker
-  xhr.open('HEAD', url, false)
+  xhr.open('OPTIONS', url, false)
+  xhr.withCredentials = true
   try {
     xhr.send()
   } catch (e) {}
